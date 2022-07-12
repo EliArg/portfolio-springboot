@@ -22,21 +22,23 @@ public class Informacion {
     private String nombre;
     @Column(name="titulo")
     private String titulo;
+    @Column(name="sobre_mi")
+    private String sobre_mi;
     @Column(name="banner")
     private String banner;
     @Column(name="avatar")
     private String avatar;
-    @Column(name="sobre_mi")
-    private String sobre_mi;
+    
     
     public Informacion(){
     }
-    public Informacion(Long id, String nombre, String titulo, String banner, String avatar, String sobre_mi){
+    public Informacion(Long id, String nombre, String titulo, String sobre_mi, String banner, String avatar){
         this.id = id;
         this.nombre = nombre;
         this.titulo = titulo;
+        this.sobre_mi = sobre_mi;
         this.banner = banner;
         this.avatar = avatar;
-        this.sobre_mi = sobre_mi;
+        
     }
 }

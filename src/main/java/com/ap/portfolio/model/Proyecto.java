@@ -20,8 +20,8 @@ public class Proyecto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @javax.persistence.Id
     private Long id_pr;
-    @Column(name="proyecto")
-    private String proyecto;
+    @Column(name="nombre_pr")
+    private String nombre_pr;
     @Column(name="fin_pr")
     private LocalDate fin_pr;
     @Column(name="descripcion_pr")
@@ -33,9 +33,9 @@ public class Proyecto {
     
     public Proyecto(){
     }
-    public Proyecto(Long id_pr, String proyecto, LocalDate fin_pr, String descripcion_pr, String link, String fuente){
+    public Proyecto(Long id_pr, String nombre_pr, LocalDate fin_pr, String descripcion_pr, String link, String fuente){
         this.id_pr = id_pr;
-        this.proyecto = proyecto;
+        this.nombre_pr = nombre_pr;
         this.fin_pr = fin_pr;
         this.descripcion_pr = descripcion_pr;
         this.link = link;

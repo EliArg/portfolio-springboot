@@ -22,11 +22,11 @@ public class Red {
     @Column(name="nombre_red")
     private String nombre_red;
     @Column(name="link_red")
-    private Long link_red;
+    private String link_red;
     
     public Red(){
     }
-    public Red(Long id_red, String nombre_red, Long link_red){
+    public Red(Long id_red, String nombre_red, String link_red){
         this.id_red = id_red;
         this.nombre_red = nombre_red;
         this.link_red = link_red;

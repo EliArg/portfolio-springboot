@@ -15,9 +15,20 @@ public class InformacionService implements IInformacionService {
     public List<Informacion> verInformacion() {
         return infoRepo.findAll();
     }
+
     @Override
     public void crearInformacion(Informacion info) {
         infoRepo.save(info);
+    }
+
+    @Override
+    public void borrarInformacion(Long id) {
+        infoRepo.deleteById(id);
+    }
+
+    @Override
+    public Informacion buscarInformacion(Long id) {
+        return infoRepo.findById(id).orElse(null);
     }
     @Override
     public void editarInformacion(Long id, Informacion info) {

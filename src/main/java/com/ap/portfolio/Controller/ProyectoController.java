@@ -40,7 +40,7 @@ public class ProyectoController {
     public ResponseEntity<Proyecto> editarProyecto(@PathVariable Long id_pr, @RequestBody Proyecto detallesPr){
         Proyecto pr = repositorio.findById(id_pr)
                 .orElseThrow(null);
-        pr.setProyecto(detallesPr.getProyecto());
+        pr.setNombre_pr(detallesPr.getNombre_pr());
         pr.setFin_pr(detallesPr.getFin_pr());
         pr.setDescripcion_pr(detallesPr.getDescripcion_pr());
         pr.setLink(detallesPr.getLink());
