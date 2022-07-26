@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.ap.portfolio.repository.ProyectoRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -27,6 +28,7 @@ public class ProyectoController {
     public List<Proyecto> verProyecto(){
         return repositorio.findAll();
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/proyecto")
     public Proyecto crearProyecto(@RequestBody Proyecto pr){
         return repositorio.save(pr);
@@ -36,6 +38,7 @@ public class ProyectoController {
         Proyecto pr = repositorio.findById(id_pr).orElse(null);
         return ResponseEntity.ok(pr);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/proyecto/{id_pr}")
     public ResponseEntity<Proyecto> editarProyecto(@PathVariable Long id_pr, @RequestBody Proyecto detallesPr){
         Proyecto pr = repositorio.findById(id_pr)
@@ -44,10 +47,11 @@ public class ProyectoController {
         pr.setFin_pr(detallesPr.getFin_pr());
         pr.setDescripcion_pr(detallesPr.getDescripcion_pr());
         pr.setLink(detallesPr.getLink());
-        pr.setFuente(detallesPr.getFuente());
+        pr.setRepositorio(detallesPr.getRepositorio());
         Proyecto prActualizada = repositorio.save(pr);
         return ResponseEntity.ok(prActualizada);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/proyecto/{id_pr}")
 	public ResponseEntity<Map<String,Boolean>> eliminarProyecto(@PathVariable Long id_pr){
 		Proyecto pr = repositorio.findById(id_pr)

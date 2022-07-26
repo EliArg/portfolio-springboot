@@ -8,19 +8,19 @@ import java.util.Set;
 public class NuevoUsuario {
 
     @NotBlank
-    private String nombreUsuario;
+    private String username;
     @Email
     private String email;
     @NotBlank
     private String password;
     private Set<String> roles = new HashSet<>();
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

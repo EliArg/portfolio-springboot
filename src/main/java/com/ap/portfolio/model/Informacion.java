@@ -22,6 +22,8 @@ public class Informacion {
     private String nombre;
     @Column(name="titulo")
     private String titulo;
+    @Column(name="email")
+    private String email;
     @Column(name="sobre_mi")
     private String sobre_mi;
     @Column(name="banner")
@@ -32,10 +34,11 @@ public class Informacion {
     
     public Informacion(){
     }
-    public Informacion(Long id, String nombre, String titulo, String sobre_mi, String banner, String avatar){
+    public Informacion(Long id, String nombre, String titulo, String email, String sobre_mi, String banner, String avatar){
         this.id = id;
         this.nombre = nombre;
         this.titulo = titulo;
+        this.email = email;
         this.sobre_mi = sobre_mi;
         this.banner = banner;
         this.avatar = avatar;

@@ -15,12 +15,12 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public Optional<Usuario> getByUsuario(String nombreUsuario){
-        return usuarioRepository.findByNombreUsuario(nombreUsuario);
+    public Optional<Usuario> getByUsuario(String username){
+        return usuarioRepository.findByUsername(username);
     }
 
-    public Boolean existsByUsuario(String nombreUsuario){
-        return usuarioRepository.existsByNombreUsuario(nombreUsuario);
+    public Boolean existsByUsuario(String username){
+        return usuarioRepository.existsByUsername(username);
     }
 
     public Boolean existsByEmail(String email){

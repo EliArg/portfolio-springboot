@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class EducacionController {
     public List<Educacion> verEducacion(){
         return repositorio.findAll();
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/educacion")
     public Educacion crearEducacion(@RequestBody Educacion edu){
         return repositorio.save(edu);
@@ -36,6 +38,7 @@ public class EducacionController {
         Educacion edu = repositorio.findById(id_ed).orElse(null);
         return ResponseEntity.ok(edu);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/educacion/{id_ed}")
     public ResponseEntity<Educacion> editarEducacion(@PathVariable Long id_ed, @RequestBody Educacion detallesEdu){
         Educacion edu = repositorio.findById(id_ed)
@@ -49,6 +52,7 @@ public class EducacionController {
         Educacion eduActualizada = repositorio.save(edu);
         return ResponseEntity.ok(eduActualizada);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/educacion/{id_ed}")
 	public ResponseEntity<Map<String,Boolean>> eliminarEducacion(@PathVariable Long id_ed){
 		Educacion edu = repositorio.findById(id_ed)

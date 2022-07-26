@@ -28,17 +28,17 @@ public class Proyecto {
     private String descripcion_pr;
     @Column(name="link")
     private String link;
-    @Column(name="fuente")
-    private String fuente;
+    @Column(name="repositorio")
+    private String repositorio;
     
     public Proyecto(){
     }
-    public Proyecto(Long id_pr, String nombre_pr, LocalDate fin_pr, String descripcion_pr, String link, String fuente){
+    public Proyecto(Long id_pr, String nombre_pr, LocalDate fin_pr, String descripcion_pr, String link, String repositorio){
         this.id_pr = id_pr;
         this.nombre_pr = nombre_pr;
         this.fin_pr = fin_pr;
         this.descripcion_pr = descripcion_pr;
         this.link = link;
-        this.fuente = fuente;
+        this.repositorio = repositorio;
     }
 }

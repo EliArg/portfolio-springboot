@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.ap.portfolio.repository.HabilidadRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -27,6 +28,7 @@ public class HabilidadController {
     public List<Habilidad> verHabilidad(){
         return repositorio.findAll();
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/habilidad")
     public Habilidad crearHabilidad(@RequestBody Habilidad hab){
         return repositorio.save(hab);
@@ -36,6 +38,7 @@ public class HabilidadController {
         Habilidad hab = repositorio.findById(id_hab).orElse(null);
         return ResponseEntity.ok(hab);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/habilidad/{id_hab}")
     public ResponseEntity<Habilidad> editarHabilidad(@PathVariable Long id_hab, @RequestBody Habilidad detallesHab){
         Habilidad hab = repositorio.findById(id_hab)
@@ -45,6 +48,7 @@ public class HabilidadController {
         Habilidad habActualizada = repositorio.save(hab);
         return ResponseEntity.ok(habActualizada);       
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/habilidad/{id_hab}")
 	public ResponseEntity<Map<String,Boolean>> eliminarHabilidad(@PathVariable Long id_hab){
 		Habilidad hab = repositorio.findById(id_hab)
