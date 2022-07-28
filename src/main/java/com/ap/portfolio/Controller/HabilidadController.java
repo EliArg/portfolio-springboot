@@ -19,7 +19,7 @@ import com.ap.portfolio.repository.HabilidadRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://portfolio-eliarg.web.app/")
 public class HabilidadController {
     @Autowired
     private HabilidadRepository repositorio;

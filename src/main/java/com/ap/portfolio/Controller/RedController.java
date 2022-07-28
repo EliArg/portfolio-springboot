@@ -18,7 +18,7 @@ import com.ap.portfolio.repository.RedRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://portfolio-eliarg.web.app/")
 public class RedController {
     @Autowired
     private RedRepository repositorio;
